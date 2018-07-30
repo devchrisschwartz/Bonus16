@@ -1,0 +1,7 @@
+D:\Programming\Grand Circus Bootcamp\Bonus16\Bonus16\bin\Debug\Bonus16.exe.config
+D:\Programming\Grand Circus Bootcamp\Bonus16\Bonus16\bin\Debug\Bonus16.exe
+D:\Programming\Grand Circus Bootcamp\Bonus16\Bonus16\bin\Debug\Bonus16.pdb
+D:\Programming\Grand Circus Bootcamp\Bonus16\Bonus16\obj\Debug\Bonus16.csprojAssemblyReference.cache
+D:\Programming\Grand Circus Bootcamp\Bonus16\Bonus16\obj\Debug\Bonus16.csproj.CoreCompileInputs.cache
+D:\Programming\Grand Circus Bootcamp\Bonus16\Bonus16\obj\Debug\Bonus16.exe
+D:\Programming\Grand Circus Bootcamp\Bonus16\Bonus16\obj\Debug\Bonus16.pdb
