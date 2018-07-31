@@ -40,6 +40,28 @@ namespace Bonus16
         }
         #endregion
 
+        public Car()
+        {
+            Make = "";
+            Model = "";
+            Year = 0;
+            Price = 10000;
+        }
+
+        public Car(string m, string mod, int y, double p)
+        {
+            Make = m;
+            Model = mod;
+            Year = y;
+            Price = p;
+        }
+
+        public override string ToString()
+        {
+            return $"{Year,-15}{Make,-15}{Model,-15}{Price,-20}";
+        }
+
+
 
     }
 }

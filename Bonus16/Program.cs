@@ -16,30 +16,28 @@ namespace Bonus16
             while (true)
             {
                 Car temp = new Car();
+                temp.Make = Validator.MakeValidator("Please enter the make of the car (eg. Ford):", "Sorry, that was an invalid input. Please enter the make of the car (eg. Ford):");
 
-                Console.WriteLine("Please enter the make of the car:");
-                temp.Make = Console.ReadLine();
-                Console.WriteLine("Please enter the model of the car:");
-                temp.Model = Console.ReadLine();
-                Console.WriteLine("Please enter the year of the car:");
-                temp.Year = int.Parse(Console.ReadLine());
-                Console.WriteLine("Please enter the price of the car:");
-                temp.Price = double.Parse(Console.ReadLine());
+                temp.Model = Validator.ModelValidator("Please enter the model of the car (eg. F150):", "Sorry, that was an invalid input. Please enter the model of the car (eg. F150):");
+
+                temp.Year = Validator.YearValidator("Please enter the year of the car (eg. 2005):", "Sorry, that is not a valid year. Please enter the year of the car (1900 to 2019):");
+
+                temp.Price = Validator.PriceValidator("Please enter the price of the car:", "Not a valid price. Please enter the price of the car.");
                 cars.Add(temp);
 
                 Console.WriteLine("Would you like to add another car?");
-                string choice = Console.ReadLine();
+                string choice = Validator.AddChoiceValidator("Would you like to add another car? (Y/N): ", "That wasnt a yes or no, so please be clear! Enter (Y/N or yes/no): ");
 
                 if (choice.ToLower() == "n")
                     break;
             }
 
 
-            Console.WriteLine($"{"Year",-12}{"Model",-12}{"Make",-12}{"Price in dollars",-20}");
+            Console.WriteLine($"{"Year",-15}{"Model",-15}{"Make",-15}{"Price in dollars",-20}");
             Console.WriteLine("====================================================");
             foreach (Car c in cars)
             {
-                Console.WriteLine($"{c.Year,-12}{c.Model,-12}{c.Make,-12}{c.Price,-20}");
+                Console.WriteLine(c.ToString());
             }
 
 
