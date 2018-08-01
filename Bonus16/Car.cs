@@ -44,8 +44,8 @@ namespace Bonus16
         {
             Make = "";
             Model = "";
-            Year = 0;
-            Price = 10000;
+            Year = 1900;
+            Price = 0;
         }
 
         public Car(string m, string mod, int y, double p)
