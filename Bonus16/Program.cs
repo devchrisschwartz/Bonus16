@@ -19,33 +19,57 @@ namespace Bonus16
             UsedCar used3 = new UsedCar("Ford", "Flex", 2013, 16400, 24607);
 
             List<Car> cars = new List<Car>() { car1, car2, car3, used1, used2, used3 };
+
+            CarLot carLot = new CarLot(cars);
+
             while (true)
             {
+                Console.WriteLine($"#: {"Year",-15}{"Model",-15}{"Make",-15}{"Price",-15}{"Mileage (When used)"}");
+                Console.WriteLine("=======================================================================");
 
-                for (int i = 0; i < cars.Count; i++)
+                carLot.ListCars(cars);
+
+                while (true)
                 {
-                    Console.WriteLine($"{i + 1}: {cars[i].ToString()}");
+                    string addOrBuy = Validator.AddBuyValidator("Would you like to add a car to the list, or buy a car? (Please enter 'add' or 'buy')", "That was not add or buy. Please enter one of those two options");
+
+                    if (addOrBuy.ToLower() == "buy")
+                    {
+                        int carSelection = Validator.ListChoiceValidator("Select which car you would like: ", $"Not a valid input! Please input between 1 and {carLot.Lot.Count}",
+                            $"Not within range. Please enter a number between 1 and {carLot.Lot.Count}", carLot.Lot.Count);
+
+                        Console.WriteLine($"{"Year",-15}{"Model",-15}{"Make",-15}{"Price",-15}{"Mileage (When used)"}");
+                        Console.WriteLine("=======================================================================");
+                        Console.WriteLine(carLot.Lot[carSelection - 1].ToString());
+
+                        string choice = Validator.AddChoiceValidator("Would you like to buy this car? (Y/N): ", "That wasnt a yes or no, so please be clear! Enter (Y/N or yes/no): ");
+                        if (choice.ToLower() == "y" | choice.ToLower() == "yes")
+                        {
+                            carLot.RemoveCar(carSelection);
+                        }
+
+                        break;
+                    }
+                    else
+                    {
+                        carLot.Lot.Add(carLot.AddCar());
+
+                        break;
+                    }
                 }
-                int carSelection = Validator.ListChoiceValidator("Select which car you would like: ", $"Not a valid input! Please input between 1 and {cars.Count}",
-                    $"Not within range. Please enter a number between 1 and {cars.Count}", cars.Count);
+                string continueChoice = Validator.ContinueChoiceValidator("Would you like to see the list of cars?: ", "That wasn't a yes or no, please be clear! Enter (Y/N or yes/no): ");
 
-                Console.WriteLine($"{"Year",-15}{"Model",-15}{"Make",-15}{"Price in dollars",-20}");
-                Console.WriteLine("=============================================================");
-                Console.WriteLine(cars[carSelection - 1].ToString());
-
-                string choice = Validator.AddChoiceValidator("Would you like to buy this car? (Y/N): ", "That wasnt a yes or no, so please be clear! Enter (Y/N or yes/no): ");
-                if (choice.ToLower() == "y" | choice.ToLower() == "yes")
+                if (continueChoice.ToLower() == "y" | continueChoice.ToLower() == "yes")
                 {
-                    cars.RemoveAt(carSelection - 1);
+                    Console.Clear();
                 }
-
-                string continueChoice = Validator.ContinueChoiceValidator("Would you like to buy another car?: ", "That wasn't a yes or no, please be clear! Enter (Y/N or yes/no): ");
-
-                if (continueChoice.ToLower() == "n" | continueChoice.ToLower() == "no")
+                else
                 {
                     break;
                 }
-            }  
+            }
+
+            Console.ReadKey();
 
             #region AddCarLoop
             //while (true)
@@ -65,7 +89,6 @@ namespace Bonus16
             //    if (choice.ToLower() == "n")
             //        break;
             //}
-            #endregion
 
             //Console.WriteLine($"{"Year",-15}{"Model",-15}{"Make",-15}{"Price in dollars",-20}");
             //Console.WriteLine("=============================================================");
@@ -73,6 +96,7 @@ namespace Bonus16
             //{
             //    Console.WriteLine(c.ToString());
             //}
+            #endregion
 
 
         }

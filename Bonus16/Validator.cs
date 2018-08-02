@@ -94,6 +94,27 @@ namespace Bonus16
             }
         }
 
+        public static double MileageValidator(string askUser, string errorMessage)
+        {
+            Console.WriteLine(askUser);
+            while (true)
+            {
+                string userInput = Console.ReadLine();
+                if (userInput == null)
+                {
+                    Console.WriteLine(errorMessage);
+                }
+                else if (!Regex.IsMatch(userInput, @"^\d{1,10}$|^\d{1,10}.\d{1,2}$"))
+                {
+                    Console.WriteLine(errorMessage);
+                }
+                else
+                {
+                    return double.Parse(userInput);
+                }
+            }
+        }
+
         public static string AddChoiceValidator(string askUser, string errorMessage)
         {
             Console.WriteLine(askUser);
@@ -160,6 +181,49 @@ namespace Bonus16
                 }
             }
         }
+
+        public static string UsedChoiceValidator(string askUser, string errorMessage)
+        {
+            Console.WriteLine(askUser);
+            while (true)
+            {
+                string userInput = Console.ReadLine();
+                if (userInput == null)
+                {
+                    Console.WriteLine(errorMessage);
+                }
+                else if (!Regex.IsMatch(userInput, @"^[uU][sS][eE][dD]$|^[nN][eE][wW]$"))
+                {
+                    Console.WriteLine(errorMessage);
+                }
+                else
+                {
+                    return userInput;
+                }
+            }
+        }
+
+        public static string AddBuyValidator(string askUser, string errorMessage)
+        {
+            Console.WriteLine(askUser);
+            while (true)
+            {
+                string userInput = Console.ReadLine();
+                if (userInput == null)
+                {
+                    Console.WriteLine(errorMessage);
+                }
+                else if (!Regex.IsMatch(userInput, @"^[aA][dD][dD]$|^[bB][uU][yY]$"))
+                {
+                    Console.WriteLine(errorMessage);
+                }
+                else
+                {
+                    return userInput;
+                }
+            }
+        }
+
 
     }
 }

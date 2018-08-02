@@ -30,5 +30,10 @@ namespace Bonus16
             Mileage = mile;
         }
 
+        public override string ToString()
+        {
+            return $"{Year,-15}{Make,-15}{Model,-15}{'$'+Price,-15}{Mileage,-15}";
+        }
+
     }
 }

@@ -58,7 +58,7 @@ namespace Bonus16
 
         public override string ToString()
         {
-            return $"{Year,-15}{Make,-15}{Model,-15}{Price,-20}";
+            return $"{Year,-15}{Make,-15}{Model,-15}{'$'+Price,-15}";
         }
 
 
