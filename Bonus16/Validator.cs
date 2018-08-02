@@ -203,7 +203,7 @@ namespace Bonus16
             }
         }
 
-        public static string AddBuyValidator(string askUser, string errorMessage)
+        public static string AddBuyReplaceValidator(string askUser, string errorMessage)
         {
             Console.WriteLine(askUser);
             while (true)
@@ -213,7 +213,7 @@ namespace Bonus16
                 {
                     Console.WriteLine(errorMessage);
                 }
-                else if (!Regex.IsMatch(userInput, @"^[aA][dD][dD]$|^[bB][uU][yY]$"))
+                else if (!Regex.IsMatch(userInput, @"^[aA][dD][dD]$|^[bB][uU][yY]$|^[rR][eE][pP][lL][aA][cC][eE]$"))
                 {
                     Console.WriteLine(errorMessage);
                 }

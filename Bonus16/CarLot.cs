@@ -71,7 +71,14 @@ namespace Bonus16
 
         }
 
+        public void ReplaceCar(List<Car> cars, int selection)
+        {
 
+            cars.RemoveAt(selection - 1);
+
+            cars.Insert(selection-1, AddCar());
+
+        }
 
     }
 }

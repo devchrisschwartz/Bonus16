@@ -25,21 +25,21 @@ namespace Bonus16
             while (true)
             {
                 Console.WriteLine($"#: {"Year",-15}{"Model",-15}{"Make",-15}{"Price",-15}{"Mileage (When used)"}");
-                Console.WriteLine("=======================================================================");
+                Console.WriteLine("=================================================================================");
 
                 carLot.ListCars(cars);
 
                 while (true)
                 {
-                    string addOrBuy = Validator.AddBuyValidator("Would you like to add a car to the list, or buy a car? (Please enter 'add' or 'buy')", "That was not add or buy. Please enter one of those two options");
+                    string addBuyReplace = Validator.AddBuyReplaceValidator("Would you like to add a car to the list, replace a car, or buy a car? (Please enter 'add', 'replace', or 'buy')", "That was not add, buy, or replace. Please enter one of those three options");
 
-                    if (addOrBuy.ToLower() == "buy")
+                    if (addBuyReplace.ToLower() == "buy")
                     {
                         int carSelection = Validator.ListChoiceValidator("Select which car you would like: ", $"Not a valid input! Please input between 1 and {carLot.Lot.Count}",
                             $"Not within range. Please enter a number between 1 and {carLot.Lot.Count}", carLot.Lot.Count);
 
                         Console.WriteLine($"{"Year",-15}{"Model",-15}{"Make",-15}{"Price",-15}{"Mileage (When used)"}");
-                        Console.WriteLine("=======================================================================");
+                        Console.WriteLine("=================================================================================");
                         Console.WriteLine(carLot.Lot[carSelection - 1].ToString());
 
                         string choice = Validator.AddChoiceValidator("Would you like to buy this car? (Y/N): ", "That wasnt a yes or no, so please be clear! Enter (Y/N or yes/no): ");
@@ -49,6 +49,20 @@ namespace Bonus16
                         }
 
                         break;
+                    }
+                    else if (addBuyReplace.ToLower() == "replace")
+                    {
+                        int carSelection = Validator.ListChoiceValidator("Select which car you would like to replace: ", $"Not a valid input! Please input between 1 and {carLot.Lot.Count}",
+                             $"Not within range. Please enter a number between 1 and {carLot.Lot.Count}", carLot.Lot.Count);
+
+                        Console.WriteLine($"{"Year",-15}{"Model",-15}{"Make",-15}{"Price",-15}{"Mileage (When used)"}");
+                        Console.WriteLine("=================================================================================");
+                        Console.WriteLine(carLot.Lot[carSelection - 1].ToString());
+
+                        carLot.ReplaceCar(cars, carSelection);
+
+                        break;
+
                     }
                     else
                     {
